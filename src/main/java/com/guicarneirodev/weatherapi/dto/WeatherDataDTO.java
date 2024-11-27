@@ -1,5 +1,7 @@
 package com.guicarneirodev.weatherapi.dto;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.guicarneirodev.weatherapi.model.FavoriteCity;
 import com.guicarneirodev.weatherapi.model.WeatherData;
 import lombok.Builder;
@@ -10,6 +12,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+
 @Getter
 public class WeatherDataDTO {
     private final Long id;
@@ -17,16 +20,20 @@ public class WeatherDataDTO {
     private final LocalDateTime createdAt;
     private final Long favoriteCityId;
 
+    @JsonCreator
     @Builder
-    private WeatherDataDTO(Long id, WeatherInfoDTO info,
-                           LocalDateTime createdAt, Long favoriteCityId) {
+    private WeatherDataDTO(
+            @JsonProperty("id") Long id,
+            @JsonProperty("info") WeatherInfoDTO info,
+            @JsonProperty("createdAt") LocalDateTime createdAt,
+            @JsonProperty("favoriteCityId") Long favoriteCityId
+    ) {
         this.id = id;
         this.info = Objects.requireNonNull(info, "Weather info cannot be null");
         this.createdAt = createdAt;
         this.favoriteCityId = favoriteCityId;
     }
 
-    // Factory method
     public static WeatherDataDTO create(WeatherInfoDTO info, Long favoriteCityId) {
         return WeatherDataDTO.builder()
                 .info(info)
