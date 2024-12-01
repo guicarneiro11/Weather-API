@@ -1,37 +1,70 @@
-# Weather API
+# ☁️ Weather API
 
-Uma API REST em Spring Boot para gerenciar cidades favoritas e obter informações meteorológicas usando a API OpenWeatherMap.
+API REST desenvolvida em Spring Boot para gerenciamento de cidades favoritas e obtenção de dados meteorológicos via OpenWeatherMap API.
 
-## Tecnologias
+## 🚀 Tecnologias Utilizadas
 
-- Java 17
-- Spring Boot 3.x
-- PostgreSQL
-- Maven
-- OpenWeatherMap API
-- JUnit 5
-- Lombok
-- Spring Data JPA
+![Java](https://img.shields.io/badge/Java_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white)
+![JUnit5](https://img.shields.io/badge/JUnit5-25A162?style=for-the-badge&logo=junit5&logoColor=white)
+![Lombok](https://img.shields.io/badge/Lombok-BC4521?style=for-the-badge&logo=lombok&logoColor=white)
 
-## Funcionalidades
+## 📋 Descrição
 
-- Gerenciamento de cidades favoritas (operações CRUD)
-- Busca de dados meteorológicos em tempo real
-- Listas de cidades específicas por usuário
-- Atualizações automáticas do clima
-- Cache de dados
-- Tratamento de erros
+API responsável por gerenciar cidades favoritas dos usuários e fornecer informações meteorológicas em tempo real através da integração com OpenWeatherMap API. Inclui recursos de cache, validação e tratamento de erros.
+
+## 🛠️ Funcionalidades
+
+- ✅ Gerenciamento completo de cidades favoritas (CRUD)
+- ✅ Dados meteorológicos em tempo real
+- ✅ Listas personalizadas por usuário
+- ✅ Cache de dados para performance
+- ✅ Validação robusta de entrada
+- ✅ Operações transacionais seguras
+- ✅ Tratamento abrangente de erros
+
+## 🔒 Segurança
+
 - Validação de entrada
+- Tratamento de exceções personalizado
 - Operações transacionais
+- Configurações sensíveis via variáveis de ambiente
 
-## Pré-requisitos
+## 📡 Endpoints
 
-- Java 17+
-- Maven 3.8+
-- PostgreSQL 12+
-- Chave da API OpenWeatherMap
+### Cidades Favoritas
+```http
+POST /api/favorites
+GET /api/favorites?userId={userId}
+GET /api/favorites/{id}
+PUT /api/favorites/{id}
+DELETE /api/favorites/{id}
+```
 
-## Configuração
+### Dados Meteorológicos
+```http
+GET /api/weather/cities/{cityName}/users/{userId}
+GET /api/weather/cities/{cityName}/users/{userId}/history
+```
+
+## 🏗️ Arquitetura
+
+A API segue uma arquitetura em camadas e modelo MVC + Clean Architeture.
+
+- config: Configurações do Spring Boot e beans
+- controller: Endpoints REST e handlers de requisições
+- dto: Objetos de transferência de dados
+- exception: Classes de exceção customizadas e handlers
+- external.openweathermap: 
+  - data: DTOs e modelos para integração com OpenWeatherMap
+- model: Entidades do domínio
+- repository: Interfaces de acesso a dados com Spring Data JPA
+- service: Lógica de negócios e orquestração
+
+
+## ⚙️ Configuração Local
 
 1. Clone o repositório
 ```bash
@@ -43,61 +76,40 @@ git clone https://github.com/guicarneiro11/weather-api.git
 CREATE DATABASE weather_app;
 ```
 
-3. Configure o application.properties
+3. Configure as variáveis de ambiente
 ```bash
 cp src/main/resources/application.properties.example src/main/resources/application.properties
-```
-Em seguida, edite o arquivo com suas credenciais do banco de dados e da API.
-
-4. Compile o projeto
-```bash
-mvn clean install
+# Adicione suas credenciais
 ```
 
-5. Execute a aplicação
+4. Execute o projeto
 ```bash
 mvn spring-boot:run
 ```
 
-## Endpoints da API
+## 📦 Dependências Principais
 
-### Cidades Favoritas
-- `POST /api/favorites` - Adicionar uma nova cidade favorita
-- `GET /api/favorites?userId={userId}` - Buscar cidades favoritas do usuário
-- `GET /api/favorites/{id}` - Buscar uma cidade favorita específica
-- `PUT /api/favorites/{id}` - Atualizar uma cidade favorita
-- `DELETE /api/favorites/{id}` - Deletar uma cidade favorita
+- Spring Boot 3.x
+- Spring Data JPA
+- PostgreSQL Driver
+- Lombok
+- JUnit 5
+- OpenWeatherMap Client
 
-### Dados Meteorológicos
-- `GET /api/weather/cities/{cityName}/users/{userId}` - Buscar clima de uma cidade
-- `GET /api/weather/cities/{cityName}/users/{userId}/history` - Buscar histórico do clima
+## 🔍 Monitoramento
 
-## Testes
+- Logs estruturados
+- Métricas Spring Actuator
+- Rastreamento de exceções
 
-Execute os testes usando:
-```bash
-mvn test
-```
+## 🤝 Integração
 
-## Como Contribuir
+Esta API é parte do ecossistema Weather App:
+- Aplicativo Android Weather
+- OpenWeatherMap API
+- PostgreSQL Database
 
-1. Faça um Fork do repositório
-2. Crie sua branch de feature (`git checkout -b feature/nova-funcionalidade`)
-3. Faça commit das suas alterações (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Faça push para a branch (`git push origin feature/nova-funcionalidade`)
-5. Abra um Pull Request
-
-## Contato
-
-Guilherme Carneiro - [@guizaokt](https://twitter.com/seu_twitter) - guicarneiro.dev@gmail.com
-
-Link do Projeto: [https://github.com/guicarneiro11/weather-api](https://github.com/guicarneiro11/weather-api)
-
-## Status do Projeto
-
-🚧 Em desenvolvimento 
-
-## Próximos Passos
+## 📈 Próximos Passos
 
 - [ ] Implementação de cache
 - [ ] Melhorias na documentação
@@ -107,8 +119,11 @@ Link do Projeto: [https://github.com/guicarneiro11/weather-api](https://github.c
 - [ ] Dockerização da aplicação
 - [ ] Integração com app android
 
----
+## 👨‍💻 Autor
 
+[Guilherme Carneiro](https://github.com/guicarneiro11) - [@guizaokt](https://twitter.com/seu_twitter)
+
+---
 ⭐ Se este projeto te ajudou, considere dar uma estrela!
 
 Desenvolvido com ❤️ por [Guizão](https://github.com/guicarneiro11)
