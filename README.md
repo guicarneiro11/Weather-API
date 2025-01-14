@@ -124,6 +124,3 @@ Esta API é parte do ecossistema Weather App:
 [Guilherme Carneiro](https://github.com/guicarneiro11) - [@guizaokt](https://twitter.com/seu_twitter)
 
 ---
-⭐ Se este projeto te ajudou, considere dar uma estrela!
-
-Desenvolvido com ❤️ por [Guizão](https://github.com/guicarneiro11)
