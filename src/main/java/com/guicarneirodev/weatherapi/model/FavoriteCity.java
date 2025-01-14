@@ -14,8 +14,8 @@ import java.util.Objects;
 @Getter
 @ToString(exclude = "weatherData")
 @EqualsAndHashCode(of = "id")
-@NoArgsConstructor(access = AccessLevel.PROTECTED) // Construtor protegido para JPA
-@AllArgsConstructor(access = AccessLevel.PRIVATE) // Construtor privado para Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 public class FavoriteCity {
     @Id
@@ -32,18 +32,16 @@ public class FavoriteCity {
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @Builder.Default // Marca o campo com valor default para o Builder
+    @Builder.Default
     @OneToMany(mappedBy = "favoriteCity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<WeatherData> weatherData = new ArrayList<>();
 
-    // Construtor público para uso normal
     public FavoriteCity(String cityName, String userId) {
         this.cityName = Objects.requireNonNull(cityName, "City name cannot be null");
         this.userId = Objects.requireNonNull(userId, "User ID cannot be null");
         this.weatherData = new ArrayList<>();
     }
 
-    // Métodos de modificação
     public void setCityName(String cityName) {
         this.cityName = Objects.requireNonNull(cityName, "City name cannot be null");
     }

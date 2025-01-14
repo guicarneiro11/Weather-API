@@ -11,8 +11,8 @@ import java.util.Objects;
 @Getter
 @ToString(exclude = {"favoriteCity"})
 @EqualsAndHashCode(of = "id")
-@NoArgsConstructor(access = AccessLevel.PROTECTED) // Para JPA
-@AllArgsConstructor(access = AccessLevel.PRIVATE)  // Para Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 public class WeatherData {
     @Id
@@ -30,7 +30,6 @@ public class WeatherData {
     @JoinColumn(name = "favorite_city_id")
     private FavoriteCity favoriteCity;
 
-    // Construtor para uso normal
     public WeatherData(WeatherInfo info, FavoriteCity favoriteCity) {
         this.info = Objects.requireNonNull(info, "Weather info cannot be null");
         this.favoriteCity = Objects.requireNonNull(favoriteCity, "Favorite city cannot be null");

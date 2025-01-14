@@ -22,19 +22,15 @@ public class RestTemplateConfig {
     public RestTemplate restTemplate() {
         RestTemplate restTemplate = new RestTemplate();
 
-        // Configurar timeouts
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
         factory.setConnectTimeout(3000);
         factory.setReadTimeout(5000);
         restTemplate.setRequestFactory(factory);
 
-        // Adicionar conversores
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
-        // Adicionar interceptor
         restTemplate.setInterceptors(Collections.singletonList(clientHttpRequestInterceptor()));
 
-        // Adicionar error handler
         restTemplate.setErrorHandler(new RestTemplateErrorHandler());
 
         return restTemplate;

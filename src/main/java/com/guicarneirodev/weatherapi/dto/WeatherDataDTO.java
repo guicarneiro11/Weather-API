@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-
 @Getter
 public class WeatherDataDTO {
     private final Long id;

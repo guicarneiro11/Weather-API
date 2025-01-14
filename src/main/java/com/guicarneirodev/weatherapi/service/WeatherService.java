@@ -111,7 +111,6 @@ public class WeatherService {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Favorite city not found with ID: " + dto.getFavoriteCityId()));
 
-        // Validar se a cidade pertence ao usuário
         if (!favoriteCity.getUserId().equals(userId)) {
             log.warn("Unauthorized access attempt: User {} trying to access city {} owned by {}",
                     userId, favoriteCity.getCityName(), favoriteCity.getUserId());
@@ -119,7 +118,6 @@ public class WeatherService {
                     "You don't have permission to access this favorite city");
         }
 
-        // Validar se a cidade do DTO corresponde à cidade favorita
         if (!favoriteCity.getCityName().equals(dto.getInfo().getCityName())) {
             throw new BusinessException(
                     "City name mismatch. Expected: " + favoriteCity.getCityName() +
