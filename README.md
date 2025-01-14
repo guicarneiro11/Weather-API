@@ -23,7 +23,7 @@ API responsável por gerenciar cidades favoritas dos usuários e fornecer inform
 - ✅ Cache de dados para performance
 - ✅ Validação robusta de entrada
 - ✅ Operações transacionais seguras
-- ✅ Tratamento abrangente de erros
+- ✅ Tratamento de erros
 
 ## 🔒 Segurança
 
@@ -96,12 +96,6 @@ mvn spring-boot:run
 - JUnit 5
 - OpenWeatherMap Client
 
-## 🔍 Monitoramento
-
-- Logs estruturados
-- Métricas Spring Actuator
-- Rastreamento de exceções
-
 ## 🤝 Integração
 
 Esta API é parte do ecossistema Weather App:
@@ -115,9 +109,8 @@ Esta API é parte do ecossistema Weather App:
 - [ ] Melhorias na documentação
 - [ ] Adição de mais testes
 - [ ] Integração com CI/CD
-- [ ] Implementação de métricas
 - [ ] Dockerização da aplicação
-- [ ] Integração com app android
+- [x] Integração com app android
 
 ## 👨‍💻 Autor
 
