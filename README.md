@@ -1,9 +1,7 @@
 # ☁️ Weather API
+REST API developed in Spring Boot for managing favorite cities and obtaining weather data via OpenWeatherMap API.
 
-API REST desenvolvida em Spring Boot para gerenciamento de cidades favoritas e obtenção de dados meteorológicos via OpenWeatherMap API.
-
-## 🚀 Tecnologias Utilizadas
-
+## 🚀 Technologies Used
 ![Java](https://img.shields.io/badge/Java_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Spring](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
@@ -11,30 +9,26 @@ API REST desenvolvida em Spring Boot para gerenciamento de cidades favoritas e o
 ![JUnit5](https://img.shields.io/badge/JUnit5-25A162?style=for-the-badge&logo=junit5&logoColor=white)
 ![Lombok](https://img.shields.io/badge/Lombok-BC4521?style=for-the-badge&logo=lombok&logoColor=white)
 
-## 📋 Descrição
+## 📋 Description
+API responsible for managing users' favorite cities and providing real-time weather information through integration with OpenWeatherMap API. Includes caching, validation, and error handling features.
 
-API responsável por gerenciar cidades favoritas dos usuários e fornecer informações meteorológicas em tempo real através da integração com OpenWeatherMap API. Inclui recursos de cache, validação e tratamento de erros.
+## 🛠️ Features
+- ✅ Complete favorite cities management (CRUD)
+- ✅ Real-time weather data
+- ✅ Custom lists per user
+- ✅ Data caching for performance
+- ✅ Robust input validation
+- ✅ Secure transactional operations
+- ✅ Error handling
 
-## 🛠️ Funcionalidades
-
-- ✅ Gerenciamento completo de cidades favoritas (CRUD)
-- ✅ Dados meteorológicos em tempo real
-- ✅ Listas personalizadas por usuário
-- ✅ Cache de dados para performance
-- ✅ Validação robusta de entrada
-- ✅ Operações transacionais seguras
-- ✅ Tratamento de erros
-
-## 🔒 Segurança
-
-- Validação de entrada
-- Tratamento de exceções personalizado
-- Operações transacionais
-- Configurações sensíveis via variáveis de ambiente
+## 🔒 Security
+- Input validation
+- Custom exception handling
+- Transactional operations
+- Sensitive configurations via environment variables
 
 ## 📡 Endpoints
-
-### Cidades Favoritas
+### Favorite Cities
 ```http
 POST /api/favorites
 GET /api/favorites?userId={userId}
@@ -42,53 +36,44 @@ GET /api/favorites/{id}
 PUT /api/favorites/{id}
 DELETE /api/favorites/{id}
 ```
-
-### Dados Meteorológicos
+### Weather Data
 ```http
 GET /api/weather/cities/{cityName}/users/{userId}
 GET /api/weather/cities/{cityName}/users/{userId}/history
 ```
 
-## 🏗️ Arquitetura
-
-A API segue uma arquitetura em camadas e modelo MVC + Clean Architeture.
-
-- config: Configurações do Spring Boot e beans
-- controller: Endpoints REST e handlers de requisições
-- dto: Objetos de transferência de dados
-- exception: Classes de exceção customizadas e handlers
+## 🏗️ Architecture
+The API follows a layered architecture and MVC + Clean Architecture model.
+- config: Spring Boot configurations and beans
+- controller: REST endpoints and request handlers
+- dto: Data transfer objects
+- exception: Custom exception classes and handlers
 - external.openweathermap: 
-  - data: DTOs e modelos para integração com OpenWeatherMap
-- model: Entidades do domínio
-- repository: Interfaces de acesso a dados com Spring Data JPA
-- service: Lógica de negócios e orquestração
+  - data: DTOs and models for OpenWeatherMap integration
+- model: Domain entities
+- repository: Data access interfaces with Spring Data JPA
+- service: Business logic and orchestration
 
-
-## ⚙️ Configuração Local
-
-1. Clone o repositório
+## ⚙️ Local Setup
+1. Clone the repository
 ```bash
 git clone https://github.com/guicarneiro11/weather-api.git
 ```
-
-2. Crie o banco de dados
+2. Create the database
 ```sql
 CREATE DATABASE weather_app;
 ```
-
-3. Configure as variáveis de ambiente
+3. Configure environment variables
 ```bash
 cp src/main/resources/application.properties.example src/main/resources/application.properties
-# Adicione suas credenciais
+# Add your credentials
 ```
-
-4. Execute o projeto
+4. Run the project
 ```bash
 mvn spring-boot:run
 ```
 
-## 📦 Dependências Principais
-
+## 📦 Main Dependencies
 - Spring Boot 3.x
 - Spring Data JPA
 - PostgreSQL Driver
@@ -96,24 +81,20 @@ mvn spring-boot:run
 - JUnit 5
 - OpenWeatherMap Client
 
-## 🤝 Integração
-
-Esta API é parte do ecossistema Weather App:
-- Aplicativo Android Weather
+## 🤝 Integration
+This API is part of the Weather App ecosystem:
+- Weather Android Application
 - OpenWeatherMap API
 - PostgreSQL Database
 
-## 📈 Próximos Passos
+## 📈 Next Steps
+- [ ] Cache implementation
+- [ ] Documentation improvements
+- [ ] Addition of more tests
+- [ ] CI/CD integration
+- [ ] Application dockerization
+- [x] Android app integration
 
-- [ ] Implementação de cache
-- [ ] Melhorias na documentação
-- [ ] Adição de mais testes
-- [ ] Integração com CI/CD
-- [ ] Dockerização da aplicação
-- [x] Integração com app android
-
-## 👨‍💻 Autor
-
-[Guilherme Carneiro](https://github.com/guicarneiro11) - [@guizaokt](https://twitter.com/seu_twitter)
-
+## 👨‍💻 Author
+[Guilherme Carneiro](https://github.com/guicarneiro11) - [@guizaokt](https://x.com/guizaokt)
 ---
